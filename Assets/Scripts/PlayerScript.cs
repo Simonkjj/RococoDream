@@ -34,9 +34,10 @@ public class PlayerScript : MonoBehaviour
         jumpButton = GameObject.FindGameObjectWithTag("JumpButton").GetComponent<Button>();
         runButton = GameObject.FindGameObjectWithTag("RunButton").GetComponent<Button>();
         stopButton = GameObject.FindGameObjectWithTag("StopButton").GetComponent<Button>();
-    }
 
-    private void OnCollisionStay2D(Collision2D col)
+	}
+
+    private void OnCollisionEnter2D(Collision2D col)
     {
         if (col.gameObject.tag == "Ground")
         {
@@ -48,13 +49,13 @@ public class PlayerScript : MonoBehaviour
     {
         if (isRunning)
         {
-            rb.velocity = new Vector2(speed * 0.02f, rb.velocity.y);
             canSlide = true;
             jumpButton.interactable = true;
             slideButton.interactable = true;
             stopButton.interactable = true;
             runButton.interactable = false;
-        } else
+        } 
+		else
         {
             jumpButton.interactable = false;
             slideButton.interactable = false;
@@ -76,8 +77,9 @@ public class PlayerScript : MonoBehaviour
     public void Run()
     {
         if (isGrounded)
-        {
-            isRunning = true;
+		{
+			rb.velocity = new Vector2(speed * 0.02f, rb.velocity.y);
+			isRunning = true;
         }
     }
 
@@ -85,7 +87,8 @@ public class PlayerScript : MonoBehaviour
     {
         if (isGrounded)
         {
-            rb.velocity = new Vector2(rb.velocity.x, jumpForce * Time.deltaTime);
+			// rb.velocity = new Vector2(rb.velocity.x, jumpForce * Time.deltaTime);
+			rb.AddForce(Vector2.up * jumpForce);
             isGrounded = false;
         }
     }
