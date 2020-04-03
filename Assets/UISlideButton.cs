@@ -6,6 +6,7 @@ using UnityEngine.EventSystems;
 [RequireComponent(typeof(RectTransform))]
 public class UISlideButton : MonoBehaviour, IPointerDownHandler
 {
+    public PlayerScript playerScr;
     private bool dragging;
     private RectTransform myRect;
     private Canvas myCanvas;
@@ -45,6 +46,17 @@ public class UISlideButton : MonoBehaviour, IPointerDownHandler
         }
 
         //Debug.Log(Value());
+
+        if (Value() > 0.95f)
+        {
+            playerScr.Jump();
+        }
+
+        if (Value() < -0.95f)
+        {
+            playerScr.SlideButton();
+            Debug.Log("Slider down");
+        }
     }
 
     public float Value()

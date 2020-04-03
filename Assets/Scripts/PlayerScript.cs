@@ -5,11 +5,11 @@ using UnityEngine.UI;
 
 public class PlayerScript : MonoBehaviour
 {
-    [SerializeField]
+    [Header("Player attributes")]
     public float speed = 20f;
     public float jumpForce = 10f;
-    
-    [SerializeField]
+
+    [Header("Slide attributes")]
     public float scaleValue = .2f;
     public float slideTime = 1f;
     public float shrinkTime = 0.005f;
@@ -19,14 +19,16 @@ public class PlayerScript : MonoBehaviour
     private bool isGrounded = false;
     private bool canSlide = false;
 
-    [SerializeField]
+
     private Rigidbody2D rb;
 
-    [SerializeField]
-    public Button slideButton;
-    public Button jumpButton;
-    public Button runButton;
-    public Button stopButton;
+    private Button slideButton;
+    private Button jumpButton;
+    private Button runButton;
+    private Button stopButton;
+
+    [Header("Public gameobjects")]
+    public HealthSystem healthScr;
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -42,6 +44,14 @@ public class PlayerScript : MonoBehaviour
         if (col.gameObject.tag == "Ground")
         {
             isGrounded = true;
+        }
+
+        if (col.gameObject.tag == "DamageObject")
+        {
+            healthScr.IsHit();
+            SlideButton();
+
+            Debug.Log("Lose health and slide");
         }
     }
 
@@ -87,7 +97,6 @@ public class PlayerScript : MonoBehaviour
     {
         if (isGrounded)
         {
-			// rb.velocity = new Vector2(rb.velocity.x, jumpForce * Time.deltaTime);
 			rb.AddForce(Vector2.up * jumpForce);
             isGrounded = false;
         }
@@ -117,8 +126,8 @@ public class PlayerScript : MonoBehaviour
                 transform.localScale += new Vector3(0, scaleValue, 0);
                 yield return new WaitForSeconds(shrinkTime);
             }
-
             canSlide = true;
+            Run();
             yield return null;
         }
         yield return null;

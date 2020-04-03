@@ -6,8 +6,8 @@ using UnityEngine.UI;
 public class HealthSystem : MonoBehaviour
 {
     public float currHealth;
-    public float MaxHealth = 1f;
-    public float loseHealth = 0.34f;
+    public float MaxHealth = 3;
+    public float loseHealth = 1;
 
 
     void Start()
@@ -30,8 +30,9 @@ public class HealthSystem : MonoBehaviour
         }
     }
 
-    void IsHit()
+    public void IsHit()
     {
+        //Debug.Log("Lose health");
         currHealth -= loseHealth;
     }
 
