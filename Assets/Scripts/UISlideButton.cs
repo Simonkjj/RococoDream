@@ -14,6 +14,9 @@ public class UISlideButton : MonoBehaviour, IPointerDownHandler
     [SerializeField]
     private float maxDragDist;
 
+    public bool isJumping = false;
+    public bool isSliding = false;
+
     private void Awake()
     {
         myRect = GetComponent<RectTransform>();
@@ -49,14 +52,20 @@ public class UISlideButton : MonoBehaviour, IPointerDownHandler
 
         if (Value() > 0.95f)
         {
+            isJumping = true;
+        }
+
+        if (isJumping)
+        {
             playerScr.Jump();
+            isJumping = false;
         }
 
         if (Value() < -0.95f)
         {
-            playerScr.SlideButton();
-            Debug.Log("Slider down");
+            isSliding = true;
         }
+            playerScr.SlideButton();
     }
 
     public float Value()

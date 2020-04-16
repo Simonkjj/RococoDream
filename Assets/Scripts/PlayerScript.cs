@@ -32,10 +32,10 @@ public class PlayerScript : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        slideButton = GameObject.FindGameObjectWithTag("SlideButton").GetComponent<Button>();
-        jumpButton = GameObject.FindGameObjectWithTag("JumpButton").GetComponent<Button>();
         runButton = GameObject.FindGameObjectWithTag("RunButton").GetComponent<Button>();
-        stopButton = GameObject.FindGameObjectWithTag("StopButton").GetComponent<Button>();
+        //slideButton = GameObject.FindGameObjectWithTag("SlideButton").GetComponent<Button>();
+        //jumpButton = GameObject.FindGameObjectWithTag("JumpButton").GetComponent<Button>();
+        //stopButton = GameObject.FindGameObjectWithTag("StopButton").GetComponent<Button>();
 
 	}
 
@@ -60,26 +60,26 @@ public class PlayerScript : MonoBehaviour
         if (isRunning)
         {
             canSlide = true;
-            jumpButton.interactable = true;
-            slideButton.interactable = true;
-            stopButton.interactable = true;
+            //jumpButton.interactable = true;
+            //slideButton.interactable = true;
+            //stopButton.interactable = true;
             runButton.interactable = false;
         } 
 		else
         {
-            jumpButton.interactable = false;
-            slideButton.interactable = false;
-            stopButton.interactable = false;
+            //jumpButton.interactable = false;
+            //slideButton.interactable = false;
+            //stopButton.interactable = false;
             runButton.interactable = true;
         }
 
         if (isGrounded)
         {
-            jumpButton.interactable = true;
+            //jumpButton.interactable = true;
         }
         else
         {
-            jumpButton.interactable = false;
+            //jumpButton.interactable = false;
             runButton.interactable = false;
         }
     }
