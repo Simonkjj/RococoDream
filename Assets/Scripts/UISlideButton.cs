@@ -49,7 +49,10 @@ public class UISlideButton : MonoBehaviour, IPointerDownHandler
         }
 
         //Debug.Log(Value());
-
+        //FIX THIS
+        //FIX THIS
+        //FIX THIS
+        //FIX THIS
         if (Value() > 0.95f)
         {
             isJumping = true;
