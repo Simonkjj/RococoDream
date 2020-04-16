@@ -33,7 +33,7 @@ public class RedFlashScript : MonoBehaviour
 
         } else
         {
-            //gameObject.SetActive(false);
+            gameObject.SetActive(false);
         }
 
     }
