@@ -60,28 +60,7 @@ public class PlayerScript : MonoBehaviour
         if (isRunning)
         {
             canSlide = true;
-            //jumpButton.interactable = true;
-            //slideButton.interactable = true;
-            //stopButton.interactable = true;
-            runButton.interactable = false;
         } 
-		else
-        {
-            //jumpButton.interactable = false;
-            //slideButton.interactable = false;
-            //stopButton.interactable = false;
-            runButton.interactable = true;
-        }
-
-        if (isGrounded)
-        {
-            //jumpButton.interactable = true;
-        }
-        else
-        {
-            //jumpButton.interactable = false;
-            runButton.interactable = false;
-        }
     }
 
     public void Run()

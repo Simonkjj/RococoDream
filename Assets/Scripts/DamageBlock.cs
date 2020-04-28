@@ -34,6 +34,8 @@ public class DamageBlock : MonoBehaviour
             redFlash.SetActive(true);
             smashSE.Play();
             Destroy(gameObject);
+            Destroy(transform.parent.gameObject);
+            //SHAKE SCREEN
         }
     }
 }

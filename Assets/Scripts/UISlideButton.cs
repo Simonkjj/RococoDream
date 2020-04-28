@@ -52,7 +52,7 @@ public class UISlideButton : MonoBehaviour, IPointerDownHandler
         //FIX THIS
         //FIX THIS
         //FIX THIS
-        //FIX THIS
+
         if (Value() > 0.95f)
         {
             isJumping = true;
