@@ -385,6 +385,7 @@ GameObject:
   - component: {fileID: 168453278}
   - component: {fileID: 168453280}
   - component: {fileID: 168453279}
+  - component: {fileID: 168453281}
   m_Layer: 5
   m_Name: HealthBarBackdrop
   m_TagString: Untagged
@@ -408,8 +409,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 663.5, y: 424}
-  m_SizeDelta: {x: 544.4, y: 150.7}
+  m_AnchoredPosition: {x: 716, y: 401.4}
+  m_SizeDelta: {x: 416.93384, y: 195.95003}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &168453279
 MonoBehaviour:
@@ -430,7 +431,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 26ff13d0b448f48479dca5803b0bd498, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bd5d0b883b146b247b2c0675691479a8, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -448,6 +449,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 168453277}
   m_CullTransparentMesh: 0
+--- !u!114 &168453281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 168453277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82a7837b5a6937144a01caa41e30657a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currHealth: 3
+  MaxHealth: 3
+  loseHealth: 1
+  zero: {fileID: 21300000, guid: 196f9fbe3c54d874aae4c790b73b36ed, type: 3}
+  one: {fileID: 21300000, guid: 0f68f73d9de635746b13af402e4dd460, type: 3}
+  two: {fileID: 21300000, guid: 26871c3455fe52245a5a6fca1f580f33, type: 3}
+  three: {fileID: 21300000, guid: bd5d0b883b146b247b2c0675691479a8, type: 3}
 --- !u!1 &186269633
 GameObject:
   m_ObjectHideFlags: 0
@@ -1205,7 +1225,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &588044207
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1222,8 +1242,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 663.5, y: 424}
-  m_SizeDelta: {x: 544.4, y: 150.7}
+  m_AnchoredPosition: {x: 716.00006, y: 401.4}
+  m_SizeDelta: {x: 416.93384, y: 195.95003}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &588044208
 MonoBehaviour:
@@ -1238,8 +1258,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currHealth: 0
-  MaxHealth: 1
-  loseHealth: 0.34
+  MaxHealth: 3
+  loseHealth: 1
+  zero: {fileID: 0}
+  one: {fileID: 0}
+  two: {fileID: 0}
+  three: {fileID: 0}
 --- !u!114 &588044209
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1259,14 +1283,14 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8e6f12234c82c16439cc6920197d0882, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bd5d0b883b146b247b2c0675691479a8, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 1
+  m_FillAmount: 0
   m_FillClockwise: 1
-  m_FillOrigin: 1
+  m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
 --- !u!222 &588044210
@@ -1734,7 +1758,6 @@ MonoBehaviour:
   scaleValue: 0.05
   slideTime: 0.5
   shrinkTime: 0.005
-  isRunning: 0
   healthScr: {fileID: 588044208}
 --- !u!50 &690054899
 Rigidbody2D:
@@ -1816,7 +1839,7 @@ Transform:
   m_GameObject: {fileID: 690054897}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -6.97, y: -4.11, z: 0}
-  m_LocalScale: {x: 1.2617483, y: 1.0736982, z: 1}
+  m_LocalScale: {x: 1.2617483, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
@@ -2783,6 +2806,8 @@ MonoBehaviour:
   maxDragDist: 250
   isJumping: 0
   isSliding: 0
+  canJump: 0
+  canSlide: 0
 --- !u!114 &1555162204
 MonoBehaviour:
   m_ObjectHideFlags: 0

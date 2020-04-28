@@ -17,6 +17,9 @@ public class UISlideButton : MonoBehaviour, IPointerDownHandler
     public bool isJumping = false;
     public bool isSliding = false;
 
+    public bool canJump = true;
+    public bool canSlide = true;
+
     private void Awake()
     {
         myRect = GetComponent<RectTransform>();
@@ -53,7 +56,7 @@ public class UISlideButton : MonoBehaviour, IPointerDownHandler
         //FIX THIS
         //FIX THIS
 
-        if (Value() > 0.95f)
+        if (Value() > 0.95f && canJump)
         {
             isJumping = true;
         }
@@ -66,9 +69,9 @@ public class UISlideButton : MonoBehaviour, IPointerDownHandler
 
         if (Value() < -0.95f)
         {
+            playerScr.SlideButton();
             isSliding = true;
         }
-            playerScr.SlideButton();
     }
 
     public float Value()

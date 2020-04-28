@@ -14,7 +14,6 @@ public class PlayerScript : MonoBehaviour
     public float slideTime = 1f;
     public float shrinkTime = 0.005f;
 
-    [SerializeField]
     private bool isRunning = false;
     private bool isGrounded = false;
     private bool canSlide = false;
@@ -22,20 +21,14 @@ public class PlayerScript : MonoBehaviour
 
     private Rigidbody2D rb;
 
-    private Button slideButton;
-    private Button jumpButton;
     private Button runButton;
-    private Button stopButton;
 
     [Header("Public gameobjects")]
     public HealthSystem healthScr;
-    private void Start()
+    private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         runButton = GameObject.FindGameObjectWithTag("RunButton").GetComponent<Button>();
-        //slideButton = GameObject.FindGameObjectWithTag("SlideButton").GetComponent<Button>();
-        //jumpButton = GameObject.FindGameObjectWithTag("JumpButton").GetComponent<Button>();
-        //stopButton = GameObject.FindGameObjectWithTag("StopButton").GetComponent<Button>();
 
 	}
 
@@ -60,7 +53,7 @@ public class PlayerScript : MonoBehaviour
         if (isRunning)
         {
             canSlide = true;
-        } 
+        }
     }
 
     public void Run()

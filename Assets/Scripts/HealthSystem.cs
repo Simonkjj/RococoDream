@@ -5,35 +5,56 @@ using UnityEngine.UI;
 
 public class HealthSystem : MonoBehaviour
 {
-    public float currHealth;
-    public float MaxHealth = 3;
-    public float loseHealth = 1;
+    [Range(0,3)]
+    public int currHealth;
+    public int MaxHealth = 3;
+    public int loseHealth = 1;
 
+    public Sprite zero;
+    public Sprite one;
+    public Sprite two;
+    public Sprite three;
+
+    private Image h_img;
 
     void Start()
     {
+        h_img = GetComponent<Image>();
         currHealth = MaxHealth;
+        loseHealth = 1;
     }
 
     void Update()
     {
-        GetComponent<Image>().fillAmount = currHealth;
+        if (currHealth < 0.01f)
+        {
+            h_img.sprite = zero;
+            YouLose();
+        }
+        if(currHealth > .5f && currHealth < 1.5f)
+        {
+            h_img.sprite = one;
+        }
+        if (currHealth > 1.5f && currHealth < 2.5f)
+        {
+            h_img.sprite = two;
+        }
+        if (currHealth > 2.5f)
+        {
+            h_img.sprite = three;
+        }
+
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
             IsHit();
         }
 
-        if (currHealth < 0.01f)
-        {
-            YouLose();
-        }
     }
 
     public void IsHit()
     {
-        //Debug.Log("Lose health");
-        currHealth -= loseHealth;
+        currHealth = currHealth - loseHealth;
     }
 
     void YouLose()
@@ -43,6 +64,6 @@ public class HealthSystem : MonoBehaviour
 
     void Respawn()
     {
-        currHealth = MaxHealth;
+        //currHealth = MaxHealth;
     }
 }
