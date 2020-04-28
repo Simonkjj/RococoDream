@@ -14,27 +14,29 @@ public class PauseMenu : MonoBehaviour
     }
 
     // Update is called once per frame
-   // void Update()
-   
-       
+    // void Update()
+   // public void OnMouseDown()
+  //  {
 
-      //  if (Input.GetKeyDown(KeyCode.Escape))
-        public void OnMouseDown() {
+  //      if (Input.touchCount > 0)
 
-         if (Input.touchCount > 0)
-            PauseMenuUI.SetActive(true);
-          Debug.Log("paused");
-       
-            if (GameIsPaused)
-            {
-                Resume();
-            }
-            else
-            {
-                Pause();
-            }
-        }
-        
+    //        Debug.Log("paused");
+    //    Pause();
+
+     //   if (GameIsPaused)
+     //   {
+     //       Resume();
+      //  }
+      //  else
+      //  {
+       //     Pause();
+      //  }
+  //  }
+
+
+
+    //  if (Input.GetKeyDown(KeyCode.Escape))
+
 
     public void Resume()
     {
@@ -45,12 +47,12 @@ public class PauseMenu : MonoBehaviour
 
     }
 
-    void Pause()
-    {
+   public void Pause()
+   {
         PauseMenuUI.SetActive(true);
         Time.timeScale = 0F;
         GameIsPaused = true;
-    }
+   }
     public void LoadMenu()
     {
         Time.timeScale = 1f;
