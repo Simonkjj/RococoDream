@@ -11,6 +11,7 @@ TagManager:
   - StopButton
   - TouchCube
   - DamageObject
+  - Enemy
   layers:
   - Default
   - TransparentFX
